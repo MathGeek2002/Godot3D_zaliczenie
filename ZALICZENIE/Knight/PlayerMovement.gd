@@ -1,4 +1,6 @@
 extends KinematicBody
+ 
+export(float) var damping = 0.95
 
 var velocity = Vector3.ZERO
 
@@ -6,8 +8,6 @@ var gravity = -9.81
 var JumpAcceleration = 3
 var CurrentVerticalSpeed = Vector3()
 var Movement = Vector3()
-
-var damping = 0.95
 
 func _physics_process(delta):
 	

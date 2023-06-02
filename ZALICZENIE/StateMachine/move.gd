@@ -3,10 +3,10 @@ extends BaseState
 
 export (float) var move_speed = 10
 export(float) var Acceleration = 3
-export (NodePath) var jump_node
+export (NodePath) var roll_node
 export (NodePath) var attack_node
 
-onready var jump_state: BaseState = get_node(jump_node)
+onready var roll_state: BaseState = get_node(roll_node)
 onready var attack_state: BaseState = get_node(attack_node)
 
 var Speed = Vector3()
@@ -19,7 +19,7 @@ var Movement = Vector3()
 func input(event: InputEvent) -> BaseState:
 	
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
-		return jump_state
+		return roll_state
 	
 	if Input.is_action_just_pressed("Attack") and player.is_on_floor():
 		return attack_state
