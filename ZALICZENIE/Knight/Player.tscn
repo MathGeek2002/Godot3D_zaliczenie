@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Knight/Paladin_MAT.material" type="Material" id=1]
 [ext_resource path="res://ThirdPersonController/3rdPersonController.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://StateMachine/move.gd" type="Script" id=5]
 [ext_resource path="res://StateMachine/roll.gd" type="Script" id=6]
 [ext_resource path="res://Knight/PlayerMovement.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=33]
+extents = Vector3( 0.1, 0.1, 0.4 )
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -4667,7 +4670,7 @@ animation = "Slash"
 [sub_resource type="AnimationNodeTimeScale" id=24]
 
 [sub_resource type="AnimationNodeBlendTree" id=25]
-graph_offset = Vector2( -249.535, 59.2656 )
+graph_offset = Vector2( -592.954, 231.813 )
 nodes/Locomotion/node = SubResource( 23 )
 nodes/Locomotion/position = Vector2( -100, 100 )
 nodes/Roll/node = SubResource( 28 )
@@ -5039,6 +5042,16 @@ bones/68/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0712, 0 )
 bones/68/enabled = true
 bones/68/bound_children = [  ]
 
+[node name="SwordArea" type="BoneAttachment" parent="RootNode/Skeleton"]
+transform = Transform( -0.168616, -0.851606, 0.496321, 0.789322, -0.418249, -0.449487, 0.590372, 0.315966, 0.742716, -0.258866, 1.02118, -0.217542 )
+bone_name = "mixamorigRightHand"
+
+[node name="Area" type="Area" parent="RootNode/Skeleton/SwordArea"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RootNode/Skeleton/SwordArea/Area"]
+transform = Transform( 0.330658, 0.00356171, 0.943745, -0.942765, 0.0469238, 0.330136, -0.0431082, -0.998892, 0.0188715, 0.381119, 0.179372, 0.0518987 )
+shape = SubResource( 33 )
+
 [node name="mixamorigHips" type="Spatial" parent="RootNode"]
 transform = Transform( 1, -1.74533e-06, 0, 1.74533e-06, 1, 0, 0, 0, 1, 0.000342793, 0.955795, 0.00465948 )
 
@@ -5282,10 +5295,14 @@ anims/WalkBack = SubResource( 17 )
 tree_root = SubResource( 25 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Locomotion/blend_position = Vector2( -0.99569, 0.0110497 )
+parameters/Locomotion/blend_position = Vector2( -0.429, 0.011 )
 parameters/Roll/active = false
 parameters/SlashAttack/active = false
 parameters/TimeScale/scale = 1.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.116268, 0.84797, 0 )
+shape = SubResource( 14 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0, 0, 0 )
@@ -5293,10 +5310,6 @@ MaxJump = 6.0
 MouseSensitivity = 2.2
 MaxZoom = 0.6
 MinZoom = 1.2
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.116268, 0.84797, 0 )
-shape = SubResource( 14 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
