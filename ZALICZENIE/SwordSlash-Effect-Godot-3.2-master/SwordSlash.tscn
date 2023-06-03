@@ -19,7 +19,7 @@ shader_param/mask = ExtResource( 2 )
 
 [sub_resource type="QuadMesh" id=3]
 material = SubResource( 2 )
-size = Vector2( 4, 4 )
+size = Vector2( 3.5, 3.5 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Fade"
@@ -60,6 +60,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.329412, 0.329412, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slash:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="SwordSlash" type="Spatial"]

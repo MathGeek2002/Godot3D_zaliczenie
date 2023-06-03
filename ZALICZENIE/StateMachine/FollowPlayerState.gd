@@ -8,9 +8,11 @@ export(float) var runDistance
 export(float) var run_speed = 6
 
 export (NodePath) var attack_node
+export (NodePath) var attack_combo_node
 export (NodePath) var tount_node
 
 onready var attack_state: BaseState = get_node(attack_node)
+onready var attack_combo_state: BaseState = get_node(attack_combo_node)
 onready var tount_state: BaseState = get_node(tount_node)
 
 onready var timer = get_node(timerPath)
@@ -34,6 +36,7 @@ func physics_process(delta: float) -> BaseState:
 	
 	if owner.isStopped == true:
 		return getRandomAction()
+		
 	elif distance.length_squared() >= runDistance * runDistance:
 		owner.move_speed = run_speed
 	else:
@@ -55,11 +58,12 @@ func calculatePath():
 	
 func getRandomAction():
 	
-	return attack_state
+	var attacks = [attack_state, attack_combo_state]
+	return attacks[randi() % attacks.size()]
 	
 func exit():
 	.exit()
-	timer.disconnect("timerout", self, "calculatePath")
+	timer.disconnect("timeout", self, "calculatePath")
 
 func enter():
 	.enter()

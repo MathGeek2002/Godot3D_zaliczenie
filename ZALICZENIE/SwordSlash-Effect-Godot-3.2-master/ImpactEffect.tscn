@@ -25,10 +25,10 @@ albedo_texture = ExtResource( 1 )
 [sub_resource type="QuadMesh" id=3]
 material = SubResource( 2 )
 
-[node name="ImpactEffect" type="Spatial"]
-
-[node name="Impact" type="Particles" parent="."]
+[node name="Impact" type="Particles"]
 amount = 20
 lifetime = 0.1
 process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 3 )
+
+[node name="ImpactEffect" type="Spatial" parent="."]
