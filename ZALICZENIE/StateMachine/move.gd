@@ -18,17 +18,15 @@ var Movement = Vector3()
 
 func input(event: InputEvent) -> BaseState:
 	
-	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
+	if Input.is_action_just_pressed("Jump") and owner.is_on_floor():
 		return roll_state
 	
-	if Input.is_action_just_pressed("Attack") and player.is_on_floor():
+	if Input.is_action_just_pressed("Attack") and owner.is_on_floor():
 		return attack_state
 	
 	return null
 
 func physics_process(delta: float) -> BaseState:
-
-	print("MOVE")
 	
 	var move = get_movement_input()
 	
@@ -38,11 +36,11 @@ func physics_process(delta: float) -> BaseState:
 	var MaxSpeed = move_speed * move
 	Speed = Speed.linear_interpolate(MaxSpeed, delta * Acceleration)
 	
-	var velY = player.velocity.y
+	var velY = owner.velocity.y
 	
-	player.velocity = player.transform.basis * (Speed)
+	owner.velocity = owner.transform.basis * (Speed)
 	
-	player.velocity.y = velY + gravity * delta * JumpAcceleration
+	owner.velocity.y = velY + gravity * delta * JumpAcceleration
 	
 	return null
 

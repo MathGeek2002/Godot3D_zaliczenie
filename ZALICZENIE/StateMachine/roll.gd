@@ -1,4 +1,5 @@
 extends BaseState
+class_name RollState
 
 export (float) var move_speed = 10
 
@@ -21,15 +22,13 @@ func enter() -> void:
 	
 	animationEnded = false
 	
-	damping = player.damping
-	player.damping = 1
+	damping = owner.damping
+	owner.damping = 1
 	
-	player.velocity = player.transform.basis * -Vector3.FORWARD * move_speed
+	owner.velocity = owner.transform.basis * -Vector3.FORWARD * move_speed
 
 
 func physics_process(delta: float) -> BaseState:
-	
-	print("ROLL")
 	
 	if animationEnded == true:
 		return move_state
@@ -38,4 +37,4 @@ func physics_process(delta: float) -> BaseState:
 
 func animationEnd():
 	animationEnded = true
-	player.damping = damping
+	owner.damping = damping

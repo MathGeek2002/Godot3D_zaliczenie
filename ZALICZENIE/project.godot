@@ -9,19 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "BaseState",
+"class": "Animation_State",
+"language": "GDScript",
+"path": "res://StateMachine/360attack_state.gd"
+}, {
 "base": "Node",
 "class": "BaseState",
 "language": "GDScript",
 "path": "res://StateMachine/BaseState.gd"
 }, {
 "base": "BaseState",
+"class": "FollowPlayerState",
+"language": "GDScript",
+"path": "res://StateMachine/FollowPlayerState.gd"
+}, {
+"base": "BaseState",
 "class": "MoveState",
 "language": "GDScript",
 "path": "res://StateMachine/move.gd"
+}, {
+"base": "BaseState",
+"class": "RollState",
+"language": "GDScript",
+"path": "res://StateMachine/roll.gd"
+}, {
+"base": "BaseState",
+"class": "SlashAttackState",
+"language": "GDScript",
+"path": "res://StateMachine/slash_state.gd"
 } ]
 _global_script_class_icons={
+"Animation_State": "",
 "BaseState": "",
-"MoveState": ""
+"FollowPlayerState": "",
+"MoveState": "",
+"RollState": "",
+"SlashAttackState": ""
 }
 
 [application]
@@ -29,6 +53,10 @@ _global_script_class_icons={
 config/name="ZALICZENIE"
 run/main_scene="res://MAIN_SCENE/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerPosition="*res://Singletons/PlayerPosition.gd"
 
 [gui]
 

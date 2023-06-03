@@ -4684,7 +4684,7 @@ nodes/SlashAttack/position = Vector2( 560, 460 )
 nodes/TimeScale/node = SubResource( 24 )
 nodes/TimeScale/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 840, 320 )
-node_connections = [ "output", 0, "SlashAttack", "TimeScale", 0, "Locomotion", "SlashAttack", 0, "Roll", "SlashAttack", 1, "SlashAnimation", "Roll", 0, "TimeScale", "Roll", 1, "Roll Animation" ]
+node_connections = [ "SlashAttack", 0, "Roll", "SlashAttack", 1, "SlashAnimation", "TimeScale", 0, "Locomotion", "Roll", 0, "TimeScale", "Roll", 1, "Roll Animation", "output", 0, "SlashAttack" ]
 
 [sub_resource type="CapsuleShape" id=14]
 radius = 0.35
@@ -5043,7 +5043,7 @@ bones/68/enabled = true
 bones/68/bound_children = [  ]
 
 [node name="SwordArea" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( -0.168616, -0.851606, 0.496321, 0.789322, -0.418249, -0.449487, 0.590372, 0.315966, 0.742716, -0.258866, 1.02118, -0.217542 )
+transform = Transform( 0.0174529, -0.999848, -8.95171e-07, -2.46058e-07, 4.43911e-07, -0.999999, 0.999848, 0.0174529, 1.88477e-07, -0.655608, 1.44612, -0.0470343 )
 bone_name = "mixamorigRightHand"
 
 [node name="Area" type="Area" parent="RootNode/Skeleton/SwordArea"]
@@ -5314,6 +5314,8 @@ MinZoom = 1.2
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
 starting_state = NodePath("MoveState")
+playerPath = NodePath("..")
+animatorPath = NodePath("../RootNode/AnimationTree")
 
 [node name="MoveState" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )

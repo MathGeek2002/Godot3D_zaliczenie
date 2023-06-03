@@ -1,6 +1,8 @@
 extends Node
 
 export (NodePath) var starting_state
+export (NodePath) var playerPath
+export (NodePath) var animatorPath
 
 var current_state: BaseState
 
@@ -12,8 +14,9 @@ func change_state(new_state: BaseState) -> void:
 	current_state.enter()
 	
 func _ready():
-	var player = get_parent()
-	var animator = player.get_node("RootNode/AnimationTree")
+	
+	var player = get_node(playerPath)
+	var animator = get_node(animatorPath)
 	
 	init(player, animator)
 
@@ -22,7 +25,7 @@ func _ready():
 # and set a default state
 func init(player: KinematicBody, animator : AnimationTree) -> void:
 	for child in get_children():
-		child.player = player
+		child.owner = player
 		child.animator = animator
 
 	# Initialize with a default state of idle

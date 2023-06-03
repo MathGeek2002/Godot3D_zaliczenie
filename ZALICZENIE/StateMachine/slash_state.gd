@@ -1,4 +1,5 @@
 extends BaseState
+class_name SlashAttackState
 
 export (float) var exit_time = 2
 
@@ -13,8 +14,6 @@ var gravity = -9.81
 var timer = 0
 
 func enter() -> void:
-	# This calls the base class enter function, which is necessary here
-	# to make sure the animation switches
 	.enter()
 	
 	animator.set("parameters/SlashAttack/active", true)
@@ -22,8 +21,6 @@ func enter() -> void:
 	timer = 0
 
 func physics_process(delta: float) -> BaseState:
-	
-	print("ATTACK")
 	
 	timer += delta
 	
