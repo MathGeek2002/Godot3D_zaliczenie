@@ -10,10 +10,12 @@ export(float) var run_speed = 6
 export (NodePath) var attack_node
 export (NodePath) var attack_combo_node
 export (NodePath) var tount_node
+export (NodePath) var magic_attack_node
 
 onready var attack_state: BaseState = get_node(attack_node)
 onready var attack_combo_state: BaseState = get_node(attack_combo_node)
 onready var tount_state: BaseState = get_node(tount_node)
+onready var magic_attack_state: BaseState = get_node(magic_attack_node)
 
 onready var timer = get_node(timerPath)
 
@@ -25,6 +27,9 @@ var CurrentVerticalSpeed = Vector3()
 var Movement = Vector3()
 
 var target
+
+func _ready():
+	owner.set_target(owner)
 
 func input(event: InputEvent) -> BaseState:
 	return null
@@ -58,7 +63,7 @@ func calculatePath():
 	
 func getRandomAction():
 	
-	var attacks = [attack_state, attack_combo_state]
+	var attacks = [attack_state, attack_combo_state, magic_attack_state]
 	return attacks[randi() % attacks.size()]
 	
 func exit():

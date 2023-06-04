@@ -1,4 +1,5 @@
 extends Node
+class_name StateMachine
 
 export (NodePath) var starting_state
 export (NodePath) var playerPath

@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://StateMachine/FollowPlayerState.gd"
 }, {
+"base": "Stat",
+"class": "Health",
+"language": "GDScript",
+"path": "res://Stats/Health.gd"
+}, {
+"base": "Area",
+"class": "HitBox",
+"language": "GDScript",
+"path": "res://HitBox.gd"
+}, {
 "base": "BaseState",
 "class": "MoveState",
 "language": "GDScript",
@@ -38,14 +48,28 @@ _global_script_classes=[ {
 "class": "SlashAttackState",
 "language": "GDScript",
 "path": "res://StateMachine/slash_state.gd"
+}, {
+"base": "Spatial",
+"class": "Stat",
+"language": "GDScript",
+"path": "res://Stats/Stat.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://StateMachine/state_manager.gd"
 } ]
 _global_script_class_icons={
 "Animation_State": "",
 "BaseState": "",
 "FollowPlayerState": "",
+"Health": "",
+"HitBox": "",
 "MoveState": "",
 "RollState": "",
-"SlashAttackState": ""
+"SlashAttackState": "",
+"Stat": "",
+"StateMachine": ""
 }
 
 [application]
