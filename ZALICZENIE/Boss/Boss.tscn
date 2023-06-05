@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://StateMachine/FollowPlayerState.gd" type="Script" id=1]
 [ext_resource path="res://StateMachine/state_manager.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://HitBox.gd" type="Script" id=9]
 [ext_resource path="res://Boss/BossHealth.gd" type="Script" id=10]
 [ext_resource path="res://Knight/Weapon.gd" type="Script" id=11]
+[ext_resource path="res://FireBall/FireBall.tscn" type="PackedScene" id=12]
 
 [sub_resource type="BoxShape" id=27]
 extents = Vector3( 25, 50, 25 )
@@ -32,6 +33,9 @@ tracks/0/keys = {
 
 [sub_resource type="BoxShape" id=28]
 extents = Vector3( 0.3, 0.9, 0.3 )
+
+[sub_resource type="SphereShape" id=29]
+radius = 0.4
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -1472,6 +1476,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton/BoneAttachment3/FireBall/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -2934,10 +2950,23 @@ tracks/50/loop_wrap = true
 tracks/50/imported = false
 tracks/50/enabled = true
 tracks/50/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0333333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.166667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.233333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.366667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.433333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.566667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.633333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.7, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/51/type = "value"
+tracks/51/path = NodePath("Skeleton/BoneAttachment3/FireBall/Particles:emitting")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "magic_attack"
 length = 2.3
+step = 0.01
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Skeleton:mixamorigHips")
 tracks/0/interp = 1
@@ -3309,6 +3338,35 @@ tracks/51/keys = {
 "method": "animationEnd"
 } ]
 }
+tracks/52/type = "value"
+tracks/52/path = NodePath("Skeleton/BoneAttachment3/FireBall/Particles:emitting")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0, 0.34, 1.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/53/type = "method"
+tracks/53/path = NodePath("Skeleton/BoneAttachment3/FireBallCollider")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0.32, 1.43 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "activate"
+}, {
+"args": [  ],
+"method": "deactivate"
+} ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "360Attack"
@@ -3348,7 +3406,7 @@ animation = "magic_attack"
 animation = "Tount"
 
 [sub_resource type="AnimationNodeBlendTree" id=4]
-graph_offset = Vector2( -248.241, 48.5433 )
+graph_offset = Vector2( -296.748, -45.131 )
 nodes/360_attack/node = SubResource( 10 )
 nodes/360_attack/position = Vector2( -260, 280 )
 nodes/360attack/node = SubResource( 11 )
@@ -3368,7 +3426,7 @@ nodes/Tount/position = Vector2( 20, 460 )
 "nodes/Tount And Wait/node" = SubResource( 18 )
 "nodes/Tount And Wait/position" = Vector2( 220, 320 )
 nodes/output/position = Vector2( 840, 680 )
-node_connections = [ "360attack", 0, "Locomotion", "360attack", 1, "360_attack", "Tount And Wait", 0, "360attack", "Tount And Wait", 1, "Tount", "MagicAttack", 0, "AttackCombo 2", "MagicAttack", 1, "Magic", "AttackCombo 2", 0, "Tount And Wait", "AttackCombo 2", 1, "AttackCombo", "output", 0, "MagicAttack" ]
+node_connections = [ "output", 0, "MagicAttack", "MagicAttack", 0, "AttackCombo 2", "MagicAttack", 1, "Magic", "AttackCombo 2", 0, "Tount And Wait", "AttackCombo 2", 1, "AttackCombo", "Tount And Wait", 0, "360attack", "Tount And Wait", 1, "Tount", "360attack", 0, "Locomotion", "360attack", 1, "360_attack" ]
 
 [node name="Boss" type="KinematicBody"]
 script = ExtResource( 5 )
@@ -3453,7 +3511,7 @@ bones/14/name = "mixamorigLeftHand"
 bones/14/parent = 13
 bones/14/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340267, 0 )
 bones/14/enabled = true
-bones/14/bound_children = [  ]
+bones/14/bound_children = [ NodePath("BoneAttachment3") ]
 bones/15/name = "mixamorigRightShoulder"
 bones/15/parent = 3
 bones/15/rest = Transform( 0.0152692, -0.941706, 0.336091, 0.00544879, -0.336047, -0.94183, 0.999869, 0.0162123, -1.19209e-07, -0.146442, 0.236059, -0.0193195 )
@@ -3701,7 +3759,7 @@ bones/63/enabled = true
 bones/63/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( -0.041616, -0.648769, 0.759848, 0.773579, -0.502234, -0.386446, 0.632335, 0.57172, 0.522773, -0.68379, 0.893045, -0.181847 )
+transform = Transform( -0.00605054, -0.706263, 0.707925, 0.764774, -0.459382, -0.451766, 0.644273, 0.538669, 0.542909, -0.677527, 1.00948, -0.272174 )
 bone_name = "mixamorigRightHand"
 
 [node name="Axe" type="Spatial" parent="RootNode/Skeleton/BoneAttachment"]
@@ -3736,7 +3794,7 @@ emitting = false
 anims/RESET = SubResource( 23 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( 0.824243, -0.125518, -0.55215, -0.0424205, 0.958694, -0.281261, 0.564646, 0.255249, 0.784872, -0.0680907, 1.21518, 0.0624107 )
+transform = Transform( 0.818936, -0.0406386, -0.572444, -0.0452606, 0.98981, -0.135018, 0.572097, 0.13648, 0.808752, -0.0618291, 1.23897, 0.0547511 )
 bone_name = "mixamorigSpine2"
 
 [node name="HitBox" type="Area" parent="RootNode/Skeleton/BoneAttachment2"]
@@ -3747,6 +3805,25 @@ healthPath = NodePath("../../../../Health")
 
 [node name="CollisionShape" type="CollisionShape" parent="RootNode/Skeleton/BoneAttachment2/HitBox"]
 shape = SubResource( 28 )
+
+[node name="BoneAttachment3" type="BoneAttachment" parent="RootNode/Skeleton"]
+transform = Transform( 0.589629, 0.200191, -0.782472, -0.447803, -0.72523, -0.522988, -0.67217, 0.658761, -0.337971, 0.391948, 0.860791, 0.572257 )
+bone_name = "mixamorigLeftHand"
+
+[node name="FireBall" parent="RootNode/Skeleton/BoneAttachment3" instance=ExtResource( 12 )]
+transform = Transform( -0.00113949, -0.100615, -0.111244, 0.0688767, -0.0991761, 0.0889949, -0.133247, -0.0504047, 0.0469538, -0.0274725, 0.298584, 0.266785 )
+
+[node name="FireBallCollider" type="Area" parent="RootNode/Skeleton/BoneAttachment3"]
+transform = Transform( 0.991251, -0.129345, -0.0262971, 0.130439, 0.990419, 0.0453246, 0.0201832, -0.0483575, 0.998626, -0.0631301, 0.241806, 0.128012 )
+collision_layer = 4
+collision_mask = 2
+monitoring = false
+monitorable = false
+script = ExtResource( 11 )
+damage = 40.0
+
+[node name="CollisionShape" type="CollisionShape" parent="RootNode/Skeleton/BoneAttachment3/FireBallCollider"]
+shape = SubResource( 29 )
 
 [node name="mixamorigHips" type="Spatial" parent="RootNode"]
 transform = Transform( 1, -1.74533e-06, 0, 1.74533e-06, 1, 0, 0, 0, 1, 0, 0.974029, 0.00576776 )
@@ -3966,6 +4043,9 @@ parameters/Locomotion/blend_position = 0
 parameters/MagicAttack/active = false
 "parameters/Tount And Wait/active" = false
 
+[node name="Eyes" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56687, 0 )
+
 [node name="NavmeshTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
@@ -3992,10 +4072,12 @@ timerPath = NodePath("../../NavmeshTimer")
 move_speed = 4.0
 runDistance = 10.0
 run_speed = 9.0
+turn_speed = 0.15
 attack_node = NodePath("../360attack")
 attack_combo_node = NodePath("../AttackCombo")
 tount_node = NodePath("../Tount")
 magic_attack_node = NodePath("../MagicAttack")
+eyesPath = NodePath("../../Eyes")
 
 [node name="360attack" type="Node" parent="StateManager"]
 script = ExtResource( 6 )
@@ -4018,3 +4100,4 @@ animation_property_name = "parameters/MagicAttack/active"
 next_node = NodePath("../FollowPlayerState")
 
 [editable path="RootNode/Skeleton/BoneAttachment/SwordSlash"]
+[editable path="RootNode/Skeleton/BoneAttachment3/FireBall"]

@@ -11,9 +11,9 @@ gravity = Vector3( 0, 0, 0 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 1 )
-shader_param/alpha = 1.0
-shader_param/rotation = 3.0
-shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/alpha = 0.0
+shader_param/rotation = -0.2
+shader_param/albedo = Color( 1, 0.329412, 0.329412, 1 )
 shader_param/color = ExtResource( 3 )
 shader_param/mask = ExtResource( 2 )
 

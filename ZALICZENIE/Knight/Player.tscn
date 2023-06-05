@@ -5117,7 +5117,7 @@ nodes/SlashAttack/position = Vector2( 560, 460 )
 nodes/TimeScale/node = SubResource( 24 )
 nodes/TimeScale/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 960, 600 )
-node_connections = [ "HitReaction", 0, "SlashAttack", "HitReaction", 1, "HitReactionAnimation", "SlashAttack", 0, "Roll", "SlashAttack", 1, "SlashAnimation", "Roll", 0, "TimeScale", "Roll", 1, "Roll Animation", "TimeScale", 0, "Locomotion", "output", 0, "HitReaction" ]
+node_connections = [ "output", 0, "HitReaction", "HitReaction", 0, "SlashAttack", "HitReaction", 1, "HitReactionAnimation", "Roll", 0, "TimeScale", "Roll", 1, "Roll Animation", "SlashAttack", 0, "Roll", "SlashAttack", 1, "SlashAnimation", "TimeScale", 0, "Locomotion" ]
 
 [sub_resource type="CapsuleShape" id=14]
 radius = 0.35
@@ -5148,7 +5148,7 @@ bones/3/name = "mixamorigSpine2"
 bones/3/parent = 1
 bones/3/rest = Transform( 0.999999, -0.00152013, 0.000196068, 0.00153231, 0.994464, -0.105065, -3.52704e-05, 0.105065, 0.994465, 0, 0.141783, 0 )
 bones/3/enabled = true
-bones/3/bound_children = [ NodePath("BoneAttachment") ]
+bones/3/bound_children = [  ]
 bones/4/name = "mixamorigNeck"
 bones/4/parent = 3
 bones/4/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000244412, 0.158623, -0.0167582 )
@@ -5323,7 +5323,7 @@ bones/38/name = "mixamorigRightHand"
 bones/38/parent = 37
 bones/38/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.216035, 0 )
 bones/38/enabled = true
-bones/38/bound_children = [ NodePath("SwordArea") ]
+bones/38/bound_children = [  ]
 bones/39/name = "mixamorigRightHandThumb1"
 bones/39/parent = 38
 bones/39/rest = Transform( 0.86138, 0.447219, -0.240874, -0.507647, 0.774588, -0.377236, 0.0178707, 0.447223, 0.894244, 0.0237037, 0.0354546, 0.0190815 )
@@ -5476,7 +5476,7 @@ bones/68/enabled = true
 bones/68/bound_children = [  ]
 
 [node name="SwordArea" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( -0.170916, -0.84229, 0.511209, 0.77857, -0.433432, -0.453833, 0.603834, 0.320445, 0.729863, -0.261697, 1.02123, -0.229543 )
+transform = Transform( 0.0174529, -0.999848, -8.95171e-07, -2.46058e-07, 4.43911e-07, -0.999999, 0.999848, 0.0174529, 1.88477e-07, -0.655608, 1.44612, -0.0470343 )
 bone_name = "mixamorigRightHand"
 
 [node name="Area" type="Area" parent="RootNode/Skeleton/SwordArea"]
@@ -5491,7 +5491,7 @@ transform = Transform( 0.330658, 0.00356171, 0.943745, -0.942765, 0.0469238, 0.3
 shape = SubResource( 33 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( 0.401883, -0.348697, -0.846699, -0.058603, 0.912966, -0.403804, 0.913814, 0.2119, 0.34647, -0.06878, 1.22561, 0.0532367 )
+transform = Transform( 1, -1.103e-07, 1.24044e-07, 9.80726e-08, 0.999999, -2.68221e-07, -1.23397e-07, -1.11759e-07, 0.999999, 0.000923246, 1.32591, -0.0344435 )
 bone_name = "mixamorigSpine2"
 
 [node name="HitBox" type="Area" parent="RootNode/Skeleton/BoneAttachment" groups=["player"]]
