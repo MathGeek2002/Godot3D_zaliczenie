@@ -34,6 +34,8 @@ func enter() -> void:
 	owner.velocity = owner.transform.basis * -Vector3.FORWARD * move_speed
 	
 	timer = 0
+	
+	#owner.get_node("Stamina").subtract(30)
 
 
 func physics_process(delta: float) -> BaseState:

@@ -1,6 +1,7 @@
 extends Health
 
 var hasImmunity = false
+ 
 
 func value_change(new_value):
 	
@@ -9,6 +10,8 @@ func value_change(new_value):
 	
 	print("Player's health = " + str(new_value))
 	.value_change(new_value)
+	
+	GlobalSignals.emit_signal("onHealthValueChange",(new_value / maxValue) * 100)
 	
 func immunityEnd():
 	hasImmunity = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Knight/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Boss/Boss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -56,18 +57,11 @@ bones/3/bound_children = [  ]
 bones/38/bound_children = [  ]
 
 [node name="SwordArea" parent="Player/RootNode/Skeleton" index="0"]
-transform = Transform( 0.17325, -0.775328, 0.607331, 0.875541, -0.161144, -0.455478, 0.451013, 0.610654, 0.650914, -0.346412, 0.988378, -0.207689 )
+transform = Transform( 0.190033, -0.781392, 0.594402, 0.870042, -0.146478, -0.470712, 0.454878, 0.606606, 0.652009, -0.34857, 0.987404, -0.214063 )
 
 [node name="BoneAttachment" parent="Player/RootNode/Skeleton" index="1"]
-transform = Transform( 0.65165, -0.257627, -0.713428, 0.0108541, 0.943624, -0.33084, 0.758443, 0.207848, 0.617708, -0.0346119, 1.18063, 0.0533492 )
+transform = Transform( 0.653891, -0.265836, -0.708348, 0.0168974, 0.941137, -0.337601, 0.756401, 0.208785, 0.619892, -0.0386891, 1.17647, 0.0475995 )
 
-[node name="Paladin_J_Nordstrom_Shield" parent="Player/RootNode" index="4"]
-visible = true
-
-[node name="Paladin_J_Nordstrom_Sword" parent="Player/RootNode" index="5"]
-visible = true
-
-[node name="AnimationTree" parent="Player/RootNode" index="7"]
-parameters/Stab/active = false
+[node name="UI" parent="." instance=ExtResource( 3 )]
 
 [editable path="Player"]

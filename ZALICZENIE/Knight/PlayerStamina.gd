@@ -8,6 +8,7 @@ func _ready():
 
 func value_change(new_value):
 	.value_change(new_value)
+	GlobalSignals.emit_signal("onStaminaValueChange",(new_value / maxValue) * 100)
 
 func regenerate_stamina():
 	add(regeneration)
