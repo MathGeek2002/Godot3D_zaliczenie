@@ -11,7 +11,6 @@ func _on_Area_area_entered(area):
 	
 	if area.has_method("getDamage"):
 		area.getDamage(damage)
-		print("damage " + str(damage))
 		
 func activate():
 	monitoring = true

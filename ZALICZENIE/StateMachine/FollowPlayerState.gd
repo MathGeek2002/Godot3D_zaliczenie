@@ -42,7 +42,7 @@ func physics_process(delta: float) -> BaseState:
 	var myPos = owner.transform.origin
 	var distance = (PlayerPosition.value - myPos)
 	
-	if owner.isStopped == true:
+	if owner.isStopped == true and IsLookingAtPlayer():
 		return getRandomAction()
 		
 	elif distance.length_squared() >= runDistance * runDistance:
@@ -68,8 +68,7 @@ func getRandomAction():
 	var attacks = [
 	attack_state,
 	attack_combo_state, 
-	magic_attack_state,
-	attack_combo_state
+	magic_attack_state
 	]
 	return attacks[randi() % attacks.size()]
 	
@@ -82,3 +81,11 @@ func enter():
 		
 	calculatePath()
 	timer.connect("timeout", self, "calculatePath")
+	
+func IsLookingAtPlayer():
+	
+	var playerDir = (PlayerPosition.value - owner.transform.origin).normalized()
+	
+	var forward = -owner.get_global_transform().basis.z
+	
+	return forward.dot(playerDir) > 0.8
