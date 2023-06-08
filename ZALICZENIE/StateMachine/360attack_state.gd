@@ -5,8 +5,12 @@ export(String) var animation_property_name
 
 export(NodePath) var next_node
 
+var next_state: BaseState 
 
-onready var next_state: BaseState = get_node(next_node)
+func _ready():
+	
+	if next_node != "":
+		next_state = get_node(next_node)
 
 var isAnimationEnd = false
 
@@ -15,7 +19,7 @@ func input(event: InputEvent) -> BaseState:
 
 func physics_process(delta: float) -> BaseState:
 	
-	if isAnimationEnd == true:
+	if isAnimationEnd == true and next_node != "":
 		return next_state
 	
 	return null

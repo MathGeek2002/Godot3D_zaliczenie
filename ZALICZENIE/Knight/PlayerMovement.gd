@@ -9,10 +9,15 @@ var JumpAcceleration = 3
 var CurrentVerticalSpeed = Vector3()
 var Movement = Vector3()
 
+var isActive = true
+
 func _ready():
 	PlayerPosition.value = transform.origin
 
 func _physics_process(delta):
+	
+	if not isActive:
+		return
 	
 	var velocityY = velocity.y
 	
@@ -26,3 +31,7 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	PlayerPosition.value = transform.origin
+	
+func deactivate():
+	isActive = false
+	move_and_slide( Vector3.ZERO, Vector3.UP )

@@ -1,7 +1,18 @@
 extends Health
 
 var hasImmunity = false
- 
+
+export(NodePath) var deathStatePath
+
+var deathState : BaseState
+
+var isDead = false
+
+func _ready():
+	
+	deathState = get_node(deathStatePath)
+	
+	
 
 func value_change(new_value):
 	
@@ -12,6 +23,11 @@ func value_change(new_value):
 	.value_change(new_value)
 	
 	GlobalSignals.emit_signal("onHealthValueChange",(new_value / maxValue) * 100)
+	
+	if not isDead and new_value <= 0:
+		isDead = true
+		stateMachine.change_state(deathState)
+		print("Death state")
 	
 func immunityEnd():
 	hasImmunity = false

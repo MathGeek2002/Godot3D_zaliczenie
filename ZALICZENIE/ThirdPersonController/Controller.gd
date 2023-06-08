@@ -23,6 +23,8 @@ var CurrentVerticalSpeed = Vector3()
 var JumpAcceleration = 3
 var IsAirborne = false
 
+var isActive = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Player = get_node(PlayerPath)
@@ -72,6 +74,11 @@ func _process(delta):
 	
 		
 func _physics_process(delta):
+	
+	if not isActive:
+		return
+		return
+	
 	#Rotation
 	Player.rotate_y(deg2rad(-Rotation.x)*delta*MouseSensitivity)
 	InnerGimbal.rotate_x(deg2rad(-Rotation.y)*delta*MouseSensitivity)
@@ -82,3 +89,6 @@ func _physics_process(delta):
 	#Zoom
 	ActualZoom = lerp(ActualZoom, ZoomFactor, delta * ZoomSpeed)
 	InnerGimbal.set_scale(Vector3(ActualZoom,ActualZoom,ActualZoom))
+
+func deactivate():
+	isActive = false
