@@ -57,10 +57,13 @@ bones/3/bound_children = [  ]
 bones/38/bound_children = [  ]
 
 [node name="SwordArea" parent="Player/RootNode/Skeleton" index="0"]
-transform = Transform( 0.190033, -0.781392, 0.594402, 0.870042, -0.146478, -0.470712, 0.454878, 0.606606, 0.652009, -0.34857, 0.987404, -0.214063 )
+transform = Transform( 0.138776, -0.755906, 0.639803, 0.894654, -0.181339, -0.4083, 0.424658, 0.629064, 0.65111, -0.347444, 0.981022, -0.207508 )
 
 [node name="BoneAttachment" parent="Player/RootNode/Skeleton" index="1"]
-transform = Transform( 0.653891, -0.265836, -0.708348, 0.0168974, 0.941137, -0.337601, 0.756401, 0.208785, 0.619892, -0.0386891, 1.17647, 0.0475995 )
+transform = Transform( 0.652151, -0.233734, -0.721156, 0.0166458, 0.955468, -0.294624, 0.757906, 0.180135, 0.627, -0.0348575, 1.17986, 0.046797 )
+
+[node name="PotionAttachment" parent="Player/RootNode/Skeleton" index="2"]
+transform = Transform( 0.0824388, -0.970512, -0.226517, -0.995675, -0.0704395, -0.0605713, 0.0428296, 0.230529, -0.972123, -0.0841797, 1.04705, 0.403498 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
