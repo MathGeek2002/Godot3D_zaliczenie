@@ -4,8 +4,7 @@ class_name Stat
 
 export (float) var maxValue
 
-var value setget value_change
-
+var value setget value_change 
 
 func _ready():
 	value = maxValue
@@ -19,3 +18,4 @@ func subtract(amount):
 	
 func add(amount):
 	value_change(value + amount)
+

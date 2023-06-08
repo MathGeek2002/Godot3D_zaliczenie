@@ -8,6 +8,7 @@ export (NodePath) var animatorPath
 var current_state: BaseState
 
 func change_state(new_state: BaseState) -> void:
+	
 	if current_state:
 		current_state.exit()
 

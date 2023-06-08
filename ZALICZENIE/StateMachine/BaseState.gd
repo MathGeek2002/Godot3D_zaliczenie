@@ -1,6 +1,7 @@
 class_name BaseState
 extends Node
 
+export(float) var stamina_cost = 0
 
 var animator: AnimationTree
 

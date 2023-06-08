@@ -3426,7 +3426,7 @@ nodes/Tount/position = Vector2( 20, 460 )
 "nodes/Tount And Wait/node" = SubResource( 18 )
 "nodes/Tount And Wait/position" = Vector2( 220, 320 )
 nodes/output/position = Vector2( 840, 680 )
-node_connections = [ "output", 0, "MagicAttack", "360attack", 0, "Locomotion", "360attack", 1, "360_attack", "Tount And Wait", 0, "360attack", "Tount And Wait", 1, "Tount", "AttackCombo 2", 0, "Tount And Wait", "AttackCombo 2", 1, "AttackCombo", "MagicAttack", 0, "AttackCombo 2", "MagicAttack", 1, "Magic" ]
+node_connections = [ "360attack", 0, "Locomotion", "360attack", 1, "360_attack", "MagicAttack", 0, "AttackCombo 2", "MagicAttack", 1, "Magic", "Tount And Wait", 0, "360attack", "Tount And Wait", 1, "Tount", "AttackCombo 2", 0, "Tount And Wait", "AttackCombo 2", 1, "AttackCombo", "output", 0, "MagicAttack" ]
 
 [sub_resource type="CapsuleShape" id=30]
 radius = 0.4
@@ -3763,7 +3763,7 @@ bones/63/enabled = true
 bones/63/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( -0.137836, -0.676948, 0.723011, 0.692513, -0.58776, -0.418292, 0.708118, 0.443038, 0.549808, -0.673039, 0.978937, -0.250878 )
+transform = Transform( 0.040402, -0.701714, 0.711314, 0.789462, -0.413953, -0.453206, 0.612471, 0.579866, 0.537251, -0.695579, 0.98142, -0.243813 )
 bone_name = "mixamorigRightHand"
 
 [node name="Axe" type="Spatial" parent="RootNode/Skeleton/BoneAttachment"]
@@ -3798,7 +3798,7 @@ emitting = false
 anims/RESET = SubResource( 23 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( 0.795349, -0.0697848, -0.602122, -0.0595693, 0.979544, -0.192213, 0.603218, 0.188744, 0.774922, -0.0654994, 1.24392, 0.068661 )
+transform = Transform( 0.826692, -0.0773901, -0.557308, -0.0313267, 0.982629, -0.182921, 0.561782, 0.168678, 0.809907, -0.0670812, 1.22695, 0.0529353 )
 bone_name = "mixamorigSpine2"
 
 [node name="HitBox" type="Area" parent="RootNode/Skeleton/BoneAttachment2"]
@@ -3811,7 +3811,7 @@ healthPath = NodePath("../../../../Health")
 shape = SubResource( 28 )
 
 [node name="BoneAttachment3" type="BoneAttachment" parent="RootNode/Skeleton"]
-transform = Transform( 0.674965, 0.156967, -0.720962, -0.376725, -0.766842, -0.519648, -0.634431, 0.622348, -0.458458, 0.354885, 0.841306, 0.593814 )
+transform = Transform( 0.590395, 0.181172, -0.78652, -0.485567, -0.69868, -0.525427, -0.644719, 0.692116, -0.324525, 0.375361, 0.85494, 0.592334 )
 bone_name = "mixamorigLeftHand"
 
 [node name="FireBall" parent="RootNode/Skeleton/BoneAttachment3" instance=ExtResource( 12 )]

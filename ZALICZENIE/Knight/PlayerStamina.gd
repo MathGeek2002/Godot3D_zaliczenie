@@ -12,3 +12,7 @@ func value_change(new_value):
 
 func regenerate_stamina():
 	add(regeneration)
+	
+
+func get_value():
+	return value
