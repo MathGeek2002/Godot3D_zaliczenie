@@ -27,7 +27,7 @@ func value_change(new_value):
 	if not isDead and new_value <= 0:
 		isDead = true
 		stateMachine.change_state(deathState)
-		print("Death state")
+		GlobalSignals.emit_signal("onShowRedText", "YOU DIED", 2)
 	
 func immunityEnd():
 	hasImmunity = false

@@ -9,3 +9,5 @@ signal onBossValueChange(newValue)
 
 signal onGameOver()
 
+signal onShowRedText(text, seconds)
+

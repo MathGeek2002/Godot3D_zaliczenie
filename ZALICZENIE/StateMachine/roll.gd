@@ -37,6 +37,10 @@ func enter() -> void:
 	
 	#owner.get_node("Stamina").subtract(30)
 
+func exit() -> void:
+	.exit()
+	
+	owner.velocity = Vector3.ZERO
 
 func physics_process(delta: float) -> BaseState:
 	

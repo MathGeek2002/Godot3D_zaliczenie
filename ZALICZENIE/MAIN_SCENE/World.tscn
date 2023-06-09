@@ -67,18 +67,19 @@ navmesh = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.102879, -0.994694, 0, 0.994694, -0.102879, 0, 3.48715, 0 )
+light_energy = 1.5
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16687, 0, 0 )
 
 [node name="SwordArea" parent="Player/RootNode/Skeleton" index="0"]
-transform = Transform( 0.170219, -0.773091, 0.611028, 0.877401, -0.163345, -0.451093, 0.448545, 0.612901, 0.650508, -0.346735, 0.987218, -0.206422 )
+transform = Transform( 0.115938, -0.753486, 0.64716, 0.906837, -0.185518, -0.378455, 0.405221, 0.630746, 0.661782, -0.344989, 0.983948, -0.208955 )
 
 [node name="HitBoxAttachment" parent="Player/RootNode/Skeleton" index="1"]
-transform = Transform( 0.652502, -0.255591, -0.713382, 0.0107554, 0.94443, -0.328534, 0.757711, 0.206696, 0.618991, -0.0344986, 1.1807, 0.0532594 )
+transform = Transform( 0.657285, -0.232162, -0.716991, 0.0191562, 0.956208, -0.29206, 0.753399, 0.178231, 0.632948, -0.0340742, 1.17586, 0.0431206 )
 
 [node name="PotionAttachment" parent="Player/RootNode/Skeleton" index="2"]
-transform = Transform( 0.112124, -0.966812, -0.229571, -0.993642, -0.106724, -0.0358479, 0.0101577, 0.23213, -0.972632, -0.0800578, 1.03877, 0.406245 )
+transform = Transform( 0.0891881, -0.967679, -0.23589, -0.995165, -0.0767952, -0.0612333, 0.0411393, 0.240209, -0.96985, -0.0806475, 1.05267, 0.40042 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
