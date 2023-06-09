@@ -13,8 +13,11 @@ func _ready():
 	hitReactionState = get_node(hitReactionPath)
 
 func value_change(new_value):
+	
+	var isPreviousBigger = new_value < value
+	
 	.value_change(new_value)
 	
-	if hitReactionPath != null:
+	if hitReactionPath != null and isPreviousBigger:
 		stateMachine.change_state(hitReactionState)
 	

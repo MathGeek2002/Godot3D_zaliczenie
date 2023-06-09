@@ -1,12 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Knight/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Boss/Boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Floor/rock_wall_04_rough_2k.jpg" type="Texture" id=4]
+[ext_resource path="res://Floor/rock_wall_04_nor_gl_2k.jpg" type="Texture" id=5]
+[ext_resource path="res://Bonfire/Bonfire.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Floor/rock_wall_04_diff_2k.jpg" type="Texture" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=6]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource( 7 )
+metallic_specular = 0.14
+roughness = 0.84
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 5 )
+uv1_scale = Vector3( 80, 80, 80 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.0915053
 
 [sub_resource type="CubeMesh" id=3]
 
@@ -28,6 +46,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor" groups=["navmesh"]]
 mesh = SubResource( 2 )
+material/0 = SubResource( 6 )
 
 [node name="Obsicle" type="StaticBody" parent="."]
 
@@ -52,23 +71,18 @@ transform = Transform( 1, 0, 0, 0, -0.102879, -0.994694, 0, 0.994694, -0.102879,
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16687, 0, 0 )
 
-[node name="Skeleton" parent="Player/RootNode" index="0"]
-bones/3/bound_children = [  ]
-bones/12/bound_children = [  ]
-bones/38/bound_children = [  ]
-
 [node name="SwordArea" parent="Player/RootNode/Skeleton" index="0"]
-transform = Transform( 0.195593, -0.782689, 0.590881, 0.865624, -0.145388, -0.47912, 0.46091, 0.605194, 0.649079, -0.344811, 0.996909, -0.218041 )
+transform = Transform( 0.170219, -0.773091, 0.611028, 0.877401, -0.163345, -0.451093, 0.448545, 0.612901, 0.650508, -0.346735, 0.987218, -0.206422 )
 
 [node name="HitBoxAttachment" parent="Player/RootNode/Skeleton" index="1"]
-transform = Transform( 0.652928, -0.268369, -0.708281, 0.0198089, 0.940854, -0.338231, 0.757162, 0.20681, 0.619626, -0.0359333, 1.17671, 0.0477205 )
+transform = Transform( 0.652502, -0.255591, -0.713382, 0.0107554, 0.94443, -0.328534, 0.757711, 0.206696, 0.618991, -0.0344986, 1.1807, 0.0532594 )
 
 [node name="PotionAttachment" parent="Player/RootNode/Skeleton" index="2"]
-transform = Transform( 0.126179, -0.965094, -0.229507, -0.991954, -0.120346, -0.0392987, 0.0103073, 0.232618, -0.972514, -0.0797023, 1.04819, 0.400891 )
-
-[node name="AnimationTree" parent="Player/RootNode" index="7"]
-parameters/DeatTimeScale/scale = 1.0
+transform = Transform( 0.112124, -0.966812, -0.229571, -0.993642, -0.106724, -0.0358479, 0.0101577, 0.23213, -0.972632, -0.0800578, 1.03877, 0.406245 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="dark_souls_-_bonfire" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16823, 0.619548, -3.62675 )
 
 [editable path="Player"]
