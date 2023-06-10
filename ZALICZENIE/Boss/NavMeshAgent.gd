@@ -14,7 +14,12 @@ var velocity = Vector3.ZERO
 
 var isStopped = false
 
+var isActive = true
+
 func _physics_process(delta):
+	
+	if not isActive:
+		return
 	
 	var dir : Vector3
 	dir = (agent.get_next_location() - transform.origin)
@@ -38,3 +43,9 @@ func set_target(new_target):
 	
 	if agent != null:
 		agent.set_target_location(new_target)
+
+func deactivate():
+	isActive = false
+	
+func activate():
+	isActive = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SlashSound.mp3-47dbd63b0a3791c7ba75bf5f6f9b2943.mp3str"
+
+[deps]
+
+source_file="res://SFX/SlashSound.mp3"
+dest_files=[ "res://.import/SlashSound.mp3-47dbd63b0a3791c7ba75bf5f6f9b2943.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

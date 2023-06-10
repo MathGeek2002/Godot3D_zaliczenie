@@ -1,5 +1,9 @@
 extends Health
 
+export(NodePath) var deathStatePath
+
+onready var death_state = get_node(deathStatePath)
+
 var isDead = false
 
 func value_change(new_value):
@@ -11,3 +15,4 @@ func value_change(new_value):
 	
 	if not isDead and value == 0:
 		GlobalSignals.emit_signal("onShowRedText", "LORD OF CINDER FALLEN", 3)
+		stateMachine.change_state(death_state)

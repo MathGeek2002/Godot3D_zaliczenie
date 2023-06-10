@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/swinging-staff-whoosh-strong-08-44658.mp3-b8c534c7f179898bf4dcf356daee9453.mp3str"
+
+[deps]
+
+source_file="res://SFX/swinging-staff-whoosh-strong-08-44658.mp3"
+dest_files=[ "res://.import/swinging-staff-whoosh-strong-08-44658.mp3-b8c534c7f179898bf4dcf356daee9453.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

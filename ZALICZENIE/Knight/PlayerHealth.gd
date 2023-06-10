@@ -4,6 +4,8 @@ var hasImmunity = false
 
 export(NodePath) var deathStatePath
 
+export(float) var healAmount = 15
+
 var deathState : BaseState
 
 var isDead = false
@@ -37,3 +39,8 @@ func immunityBegin():
 
 func _on_Timer_timeout():
 	immunityEnd()
+	
+func heath_potion_drink():
+	if not isDead:
+		add(healAmount)
+	
