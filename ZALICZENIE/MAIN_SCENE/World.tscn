@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Knight/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Boss/Boss.tscn" type="PackedScene" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://ASSETS/ModularDungeon/Prefabs/LightCandleHolderB01.tscn" type="PackedScene" id=20]
 [ext_resource path="res://ASSETS/ModularDungeon/Prefabs/Light01.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Bonfire/BonfireActivator.gd" type="Script" id=22]
+[ext_resource path="res://ASSETS/PREFABS/Viking_Shield.tscn" type="PackedScene" id=23]
+[ext_resource path="res://ASSETS/PREFABS/Shield.tscn" type="PackedScene" id=24]
+[ext_resource path="res://ASSETS/PREFABS/longsword.tscn" type="PackedScene" id=25]
+[ext_resource path="res://ASSETS/PREFABS/scimitar.tscn" type="PackedScene" id=26]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -74,13 +78,13 @@ bones/14/bound_children = [ NodePath("BoneAttachment3") ]
 bones/34/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="Boss/RootNode/Skeleton" index="0"]
-transform = Transform( -0.108132, -0.69564, 0.710208, 0.707778, -0.55554, -0.436382, 0.698113, 0.455482, 0.552428, -0.670269, 1.02273, -0.277874 )
+transform = Transform( 0.0760219, -0.68156, 0.727804, 0.818105, -0.374644, -0.436292, 0.570026, 0.628587, 0.529104, -0.701637, 0.907725, -0.191147 )
 
 [node name="BoneAttachment2" parent="Boss/RootNode/Skeleton" index="1"]
-transform = Transform( 0.798354, -0.0317275, -0.601352, -0.0549423, 0.990609, -0.125206, 0.599676, 0.132998, 0.789114, -0.0627259, 1.25085, 0.0631137 )
+transform = Transform( 0.829924, -0.135444, -0.541185, -0.0213037, 0.961679, -0.273352, 0.557469, 0.23839, 0.795235, -0.0722399, 1.20934, 0.0571387 )
 
 [node name="BoneAttachment3" parent="Boss/RootNode/Skeleton" index="2"]
-transform = Transform( 0.653412, 0.17533, -0.73642, -0.381864, -0.763628, -0.52063, -0.653633, 0.621397, -0.432011, 0.381116, 0.858614, 0.577596 )
+transform = Transform( 0.642648, 0.08552, -0.761375, -0.503637, -0.701723, -0.503922, -0.57737, 0.7073, -0.40789, 0.315605, 0.832396, 0.632763 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173271, 0.203308, -0.006073 )
@@ -100,13 +104,13 @@ bones/12/bound_children = [ NodePath("PotionAttachment") ]
 bones/38/bound_children = [ NodePath("SwordArea") ]
 
 [node name="SwordArea" parent="Player/RootNode/Skeleton" index="0"]
-transform = Transform( 0.186368, -0.781335, 0.595636, 0.867973, -0.153108, -0.472419, 0.460315, 0.60504, 0.649644, -0.345412, 0.992944, -0.212599 )
+transform = Transform( 0.187514, -0.780906, 0.595839, 0.87079, -0.148515, -0.468686, 0.454491, 0.606736, 0.652158, -0.348462, 0.987089, -0.213898 )
 
 [node name="HitBoxAttachment" parent="Player/RootNode/Skeleton" index="1"]
-transform = Transform( 0.65005, -0.264855, -0.71224, 0.0125227, 0.940899, -0.338456, 0.759789, 0.211094, 0.614948, -0.0350749, 1.17987, 0.0528352 )
+transform = Transform( 0.653605, -0.265409, -0.708772, 0.0167186, 0.941328, -0.337076, 0.756652, 0.208464, 0.619694, -0.0385318, 1.17671, 0.0477037 )
 
 [node name="PotionAttachment" parent="Player/RootNode/Skeleton" index="2"]
-transform = Transform( 0.121159, -0.966437, -0.226542, -0.992621, -0.116854, -0.0323699, 0.00481129, 0.228791, -0.973464, -0.0806397, 1.04048, 0.40509 )
+transform = Transform( 0.0935371, -0.971366, -0.218404, -0.995191, -0.0848145, -0.0490011, 0.0290745, 0.221936, -0.974628, -0.0826634, 1.04199, 0.400483 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
@@ -274,6 +278,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.3359, 3.91787, 22.913 )
 
 [node name="Light02" parent="Buildings/Castle_Builds_1B1/Lights" instance=ExtResource( 21 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39.4938, 3.91787, 13.4109 )
+
+[node name="Weapons" type="Spatial" parent="Buildings/Castle_Builds_1B1"]
+
+[node name="Shield" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 24 )]
+transform = Transform( 0.11294, 0.277929, 1.21487e-08, 0, -1.31134e-08, 0.3, 0.277929, -0.11294, -4.93677e-09, 60.4345, 0.000280398, 9.70304 )
+
+[node name="Viking_Shield" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 23 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 63.2563, -6.2448e-05, 5.35426 )
+
+[node name="longsword" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 25 )]
+transform = Transform( 37.6467, 92.643, 4.04955e-06, 0, -4.37114e-06, 100, 92.643, -37.6467, -1.64559e-06, 61.6458, -0.0101466, 4.7624 )
+
+[node name="longsword3" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 25 )]
+transform = Transform( 59.5636, -7.02227e-06, -80.3254, 19.7778, -96.9214, 14.6658, -77.8525, -24.6221, -57.7299, 62.9025, 0.345686, 8.73857 )
+
+[node name="longsword2" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 25 )]
+transform = Transform( 76.6471, -64.2279, -2.80749e-06, 0, -4.37114e-06, 100, -64.2279, -76.6471, -3.35035e-06, 63.8189, -0.0101466, 8.19398 )
+
+[node name="scimitar" parent="Buildings/Castle_Builds_1B1/Weapons" instance=ExtResource( 26 )]
+transform = Transform( 67.2896, -73.9737, 3.23349e-06, 0, -4.37114e-06, -100, 73.9737, 67.2896, -2.94132e-06, 59.3211, 0, 7.95388 )
 
 [node name="Castle" type="GridMap" parent="Buildings"]
 mesh_library = ExtResource( 10 )
