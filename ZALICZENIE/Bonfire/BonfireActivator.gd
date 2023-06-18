@@ -1,35 +1,18 @@
-extends StaticBody
-
-
-var isActive = false
-
-var playerEntered = false
+extends Interactible
 
 
 func _ready():
+	._ready()
 	GlobalSignals.connect("onBossDie",self,"show_bonfire")
-	visible = false
+	get_parent().visible = false
+	$CollisionShape.disabled = true
 
 func show_bonfire():
-	visible = true
+	get_parent().visible = true
 	$CollisionShape.disabled = false
-	$InterctionArea.monitorable = true
-	$InterctionArea.monitoring = true
+	monitorable = true
+	monitoring = true
 
-
-func _on_InterctionArea_body_entered(body):
-	
-	if body.is_in_group("player"):
-		GlobalSignals.emit_signal("onShowActionInfo", "Press E")
-		playerEntered = true
-
-func _on_InterctionArea_body_exited(body):
-	
-	if body.is_in_group("player"):
-		GlobalSignals.emit_signal("onHideActionInfo")
-		playerEntered = false
 		
-func _input(event):
-	
-	if event.is_action_pressed("Interact") and playerEntered:
-		get_tree().reload_current_scene()
+func interaction():
+	get_tree().reload_current_scene()
