@@ -5,7 +5,11 @@ export(String) var animation_property_name
 
 export(NodePath) var next_node
 
+export(float)var exit_time = 10
+
 var next_state: BaseState 
+
+var timer = 0
 
 func _ready():
 	
@@ -18,8 +22,13 @@ func input(event: InputEvent) -> BaseState:
 	return null
 
 func physics_process(delta: float) -> BaseState:
-	
+		
 	if isAnimationEnd == true and next_node != "":
+		return next_state
+	
+	timer += delta
+	
+	if timer > exit_time and next_node != "":
 		return next_state
 	
 	return null
@@ -32,6 +41,7 @@ func exit():
 
 func enter():
 	.enter()
+	timer = 0
 	
 	animator.set(animation_property_name, true)
 	isAnimationEnd = false

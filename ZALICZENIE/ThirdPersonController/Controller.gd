@@ -36,14 +36,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion :
 		Rotation = event.relative
 	
-	if event is InputEventMouseButton:
-		match event.button_index:
-			BUTTON_WHEEL_UP:
-				ZoomFactor -= 0.05
-			BUTTON_WHEEL_DOWN:
-				ZoomFactor += 0.05
-		ZoomFactor = clamp(ZoomFactor, MaxZoom, MinZoom)
-	
 	if event is InputEventKey and event.pressed:
 		match event.scancode:
 			KEY_ESCAPE:
@@ -77,7 +69,6 @@ func _physics_process(delta):
 	
 	if not isActive:
 		return
-		return
 	
 	#Rotation
 	Player.rotate_y(deg2rad(-Rotation.x)*delta*MouseSensitivity)
@@ -87,7 +78,7 @@ func _physics_process(delta):
 	
 	
 	#Zoom
-	ActualZoom = lerp(ActualZoom, ZoomFactor, delta * ZoomSpeed)
+	#ActualZoom = lerp(ActualZoom, ZoomFactor, delta * ZoomSpeed)
 	InnerGimbal.set_scale(Vector3(ActualZoom,ActualZoom,ActualZoom))
 
 func deactivate():

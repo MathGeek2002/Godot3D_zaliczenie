@@ -16,6 +16,8 @@ var isStopped = false
 
 var isActive = true
 
+var timer = 0
+
 func _physics_process(delta):
 	
 	if not isActive:
@@ -29,12 +31,17 @@ func _physics_process(delta):
 	
 	var velocity = dir.normalized() * move_speed
 	
+	
 	if distance.length_squared() >= stoppingDistance * stoppingDistance:
-		move_and_slide(velocity, Vector3.UP)
 		isStopped = false
 	else:
 		isStopped = true
-		move_speed = 0
+		
+	if isStopped:
+		velocity = Vector3.ZERO
+	
+	move_and_slide(velocity, Vector3.UP)
+		
 		
 
 func set_target(new_target):

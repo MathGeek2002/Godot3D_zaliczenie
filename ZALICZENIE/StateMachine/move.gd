@@ -6,10 +6,12 @@ export(float) var Acceleration = 3
 export (NodePath) var roll_node
 export (NodePath) var attack_node
 export (NodePath) var potion_drink_node
+export (NodePath) var potion_controller_path
 
 onready var roll_state: BaseState = get_node(roll_node)
 onready var attack_state: BaseState = get_node(attack_node)
 onready var potion_drink_state: BaseState = get_node(potion_drink_node)
+onready var potion_controller = get_node(potion_controller_path)
 
 var Speed = Vector3()
 
@@ -26,7 +28,7 @@ func input(event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("Attack") and owner.is_on_floor():
 		return attack_state
 	
-	if Input.is_action_just_pressed("PotionDrink"):
+	if Input.is_action_just_pressed("PotionDrink") and potion_controller.can_drink_potion():
 		return potion_drink_state
 	
 	return null

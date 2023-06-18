@@ -33,8 +33,7 @@ var Movement = Vector3()
 
 var target
 
-func _ready():
-	owner.set_target(owner)
+var previous_attack_state : BaseState = null
 
 func input(event: InputEvent) -> BaseState:
 	return null
@@ -70,20 +69,32 @@ func getRandomAction():
 	var attacks = [
 	attack_state,
 	attack_combo_state, 
-	magic_attack_state
+	magic_attack_state,
+	tount_state
 	#,jump_attack_state
 	]
-	return attacks[randi() % attacks.size()]
+	
+	var new_attack = attacks[randi() % attacks.size()]
+	
+	while new_attack == previous_attack_state:
+		new_attack = attacks[randi() % attacks.size()]
+	
+	previous_attack_state = new_attack
+	return new_attack
 	
 func exit():
 	.exit()
 	timer.disconnect("timeout", self, "calculatePath")
+	owner.deactivate()
 
 func enter():
 	.enter()
 		
 	calculatePath()
 	timer.connect("timeout", self, "calculatePath")
+	timer.start()
+	owner.isStopped = false
+	owner.activate()
 	
 func IsLookingAtPlayer():
 	

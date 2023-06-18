@@ -30,6 +30,7 @@ func value_change(new_value):
 		isDead = true
 		stateMachine.change_state(deathState)
 		GlobalSignals.emit_signal("onShowRedText", "YOU DIED", 2)
+		$ResetLevelTimer.start()
 	
 func immunityEnd():
 	hasImmunity = false
@@ -41,6 +42,10 @@ func _on_Timer_timeout():
 	immunityEnd()
 	
 func heath_potion_drink():
+	
 	if not isDead:
 		add(healAmount)
-	
+
+
+func _on_ResetLevelTimer_timeout():
+	get_tree().reload_current_scene()

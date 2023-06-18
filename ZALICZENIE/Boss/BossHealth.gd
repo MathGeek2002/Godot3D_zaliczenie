@@ -14,5 +14,7 @@ func value_change(new_value):
 	GlobalSignals.emit_signal("onBossValueChange", (value / maxValue) * 100)
 	
 	if not isDead and value == 0:
-		GlobalSignals.emit_signal("onShowRedText", "LORD OF CINDER FALLEN", 3)
+		GlobalSignals.emit_signal("onShowRedText", "DARK LORD FALLEN", 3)
+		GlobalSignals.emit_signal("onBossDie")
 		stateMachine.change_state(death_state)
+

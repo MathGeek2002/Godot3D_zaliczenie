@@ -103,26 +103,34 @@ size = Vector2( 0.05, 0.5 )
 
 [node name="OuterAura" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+emitting = false
 amount = 3
 lifetime = 2.5
+one_shot = true
 process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 5 )
 
 [node name="InnerAura" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+emitting = false
 amount = 1
 lifetime = 3.0
+one_shot = true
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 10 )
 
 [node name="DustParticles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245117, 0 )
+emitting = false
 amount = 50
+one_shot = true
 process_material = SubResource( 13 )
 draw_pass_1 = SubResource( 15 )
 
 [node name="DustParticles2" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625732, 0 )
+emitting = false
 amount = 50
+one_shot = true
 process_material = SubResource( 16 )
 draw_pass_1 = SubResource( 17 )

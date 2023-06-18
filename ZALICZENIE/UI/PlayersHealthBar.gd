@@ -7,4 +7,3 @@ func _ready():
 	
 func changeFillAmount(newValue):
 	value = newValue
-

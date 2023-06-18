@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/melee-attack-with-voice-1-104995.mp3-63b59d82934884c2e620b53ff13a7706.mp3str"
+
+[deps]
+
+source_file="res://SFX/melee-attack-with-voice-1-104995.mp3"
+dest_files=[ "res://.import/melee-attack-with-voice-1-104995.mp3-63b59d82934884c2e620b53ff13a7706.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

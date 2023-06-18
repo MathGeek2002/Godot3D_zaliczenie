@@ -6,10 +6,13 @@
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 script = ExtResource( 1 )
 PlayerPath = NodePath("..")
+RotationLimit = 20.0
 
 [node name="InnerGimbal" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45646, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59473, 0 )
 
-[node name="Camera" type="Camera" parent="InnerGimbal"]
-transform = Transform( 0.333333, 0, 0, 0, 0.319712, 0.0943141, 0, -0.0943141, 0.319712, 0, -0.852333, 1.3688 )
+[node name="ClippedCamera" type="ClippedCamera" parent="InnerGimbal"]
+transform = Transform( 0.333333, 0, 0, 0, 0.29005, 0.164263, 0, -0.164263, 0.29005, 0, 0, 1.84975 )
+cull_mask = 1048567
 current = true
+margin = 1.0

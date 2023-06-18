@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://UI/HealthBarTheme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/PlayersHealthBar.gd" type="Script" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://UI/BossHealthBar.gd" type="Script" id=4]
 [ext_resource path="res://UI/OptimusPrinceps.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://UI/RedTextController.gd" type="Script" id=6]
+[ext_resource path="res://UI/ActionInfoDispaly.gd" type="Script" id=7]
+[ext_resource path="res://EstusFlask/Estus_Flask_3.png" type="Texture" id=8]
+[ext_resource path="res://UI/EstusView.gd" type="Script" id=9]
+[ext_resource path="res://EstusFlask/Estus_Flask_2.png" type="Texture" id=10]
+[ext_resource path="res://EstusFlask/Estus_Flask_1.png" type="Texture" id=11]
+[ext_resource path="res://EstusFlask/Estus_Flask_0.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.921569, 0, 0, 1 )
@@ -87,3 +93,66 @@ script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="Label"]
 one_shot = true
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+
+[node name="ActionInfo" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = 83.0
+margin_right = 30.0
+margin_bottom = 123.0
+color = Color( 0.180392, 0.192157, 0.188235, 1 )
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="ActionInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E"
+align = 1
+valign = 1
+
+[node name="EstusView" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 90.0
+margin_top = -185.0
+margin_right = 184.0
+margin_bottom = -80.0
+color = Color( 0.168627, 0.164706, 0.164706, 0.709804 )
+script = ExtResource( 9 )
+flask0 = ExtResource( 12 )
+flask1 = ExtResource( 11 )
+flask2 = ExtResource( 10 )
+flask3 = ExtResource( 8 )
+
+[node name="EstusIcon" type="TextureRect" parent="EstusView"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.0
+margin_top = -50.0
+margin_right = 51.0
+margin_bottom = 50.0
+texture = ExtResource( 8 )
+expand = true

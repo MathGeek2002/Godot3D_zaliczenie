@@ -35,3 +35,8 @@ func _physics_process(delta):
 func deactivate():
 	isActive = false
 	move_and_slide( Vector3.ZERO, Vector3.UP )
+	
+func _input(event):
+	
+	if event.is_action_pressed("QuitGame"):
+		get_tree().quit()

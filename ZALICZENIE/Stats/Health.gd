@@ -18,6 +18,6 @@ func value_change(new_value):
 	
 	.value_change(new_value)
 	
-	if hitReactionPath != null and isPreviousBigger:
+	if hitReactionPath != "" and isPreviousBigger:
 		stateMachine.change_state(hitReactionState)
 	

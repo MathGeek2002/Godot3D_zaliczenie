@@ -1,10 +1,6 @@
 extends Animation_State
 class_name HitReactionStaate
 
-export (float) var exit_time = 0.9
-
-var timer = 0
-
 func enter() -> void:
 	
 	.enter()
